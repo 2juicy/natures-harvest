@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import "./Signup.scss";
 import FlexContainer from "../FlexContainer/FlexContainer";
 import { useAuth } from "../../../contexts/AuthContext";
+import Alert from "../Alert/Alert";
 
 export default function Signup() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -31,7 +32,7 @@ export default function Signup() {
     <FlexContainer>
       <div className="container">
         <h3 className="title">Sign Up</h3>
-        {error && <h3 className="Error">{error}</h3>}
+        {error && <Alert message={error} setError={setError} />}
         <form onSubmit={handleSubmit}>
           <div className="input-box">
             <span className="label">Email</span>
