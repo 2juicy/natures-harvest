@@ -2,14 +2,15 @@ import { useRef, useState } from "react";
 import FlexContainer from "../FlexContainer/FlexContainer";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Signin() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const { signup } = useAuth();
+  const { signin, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -17,9 +18,10 @@ export default function Signin() {
     try {
       setError("");
       setLoading(true);
-      await signup(emailRef.current?.value, passwordRef.current?.value);
+      await signin(emailRef.current?.value, passwordRef.current?.value);
+      history.push("/");
     } catch {
-      setError("Failed to create an account!");
+      setError("Failed to sign in!");
     }
     setLoading(false);
   }
@@ -28,6 +30,7 @@ export default function Signin() {
     <FlexContainer>
       <div className="container">
         <h3 className="title">Sign In</h3>
+        {currentUser && JSON.stringify(currentUser.email)}
         {error && <Alert message={error} setError={setError} />}
         <form onSubmit={handleSubmit}>
           <div className="input-box">
