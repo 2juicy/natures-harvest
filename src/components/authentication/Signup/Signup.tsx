@@ -46,7 +46,9 @@ export default function Signup() {
             <input type="submit" value="Sign Up" />
           </div>
 
-          <div className="go-login">Already have an account? Log In</div>
+          <div className="go-login">
+            Already have an account? <a href="#">Log In</a>
+          </div>
         </form>
       </div>
     </FlexContainer>
