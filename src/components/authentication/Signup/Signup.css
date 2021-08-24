@@ -1,0 +1,85 @@
+.container {
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
+}
+
+.container .title {
+  font-size: 32px;
+  position: relative;
+  text-align: center;
+}
+
+.container .title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container form .input-box {
+  margin: 20px 0 10px 0;
+}
+
+.input-box .label {
+  display: block;
+  padding: 2px;
+  font-weight: 500;
+}
+
+.input-box input {
+  height: 45px;
+  width: 100%;
+  font-size: 16px;
+  padding-left: 15px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-bottom-width: 2px;
+  transition: all 0.5s ease;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-color: #9b59b6;
+}
+
+form .button {
+  height: 45px;
+  margin: 35px 0;
+}
+
+form .button input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background: linear-gradient(105deg, #71b7e6, #9b59b6);
+}
+
+form .button input:hover {
+  background: linear-gradient(-105deg, #71b7e6, #9b59b6);
+}
+
+.go-login {
+  font-size: 22px;
+  text-align: center;
+}
+
+@media (max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+}
