@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "./Signup.css";
+import "./Signup.scss";
 import FlexContainer from "../FlexContainer/FlexContainer";
 
 export default function Signup() {
