@@ -1,9 +1,10 @@
 import "./App.css";
+import Signup from "./components/authentication/Signup";
 
 function App() {
   return (
     <div className="App">
-      <h1>Initial Setup</h1>
+      <Signup />
     </div>
   );
 }
