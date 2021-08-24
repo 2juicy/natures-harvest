@@ -1,5 +1,5 @@
 import React from "react";
-import "./FlexContainer.css";
+import "./FlexContainer.scss";
 
 export default function FlexContainer({
   children,
