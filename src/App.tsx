@@ -2,11 +2,7 @@ import "./App.scss";
 import Signup from "./components/authentication/Signup/Signup";
 
 function App() {
-  return (
-    <div className="App">
-      <Signup />
-    </div>
-  );
+  return <Signup />;
 }
 
 export default App;
