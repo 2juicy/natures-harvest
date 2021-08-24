@@ -1,11 +1,18 @@
 import { useRef } from "react";
 import "./Signup.scss";
 import FlexContainer from "../FlexContainer/FlexContainer";
+import { useAuth } from "../../../contexts/AuthContext";
 
 export default function Signup() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
+  const { signup } = useAuth();
+
+  function handleSubmit(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+    signup(emailRef.current?.value, passwordRef.current?.value);
+  }
 
   return (
     <FlexContainer>
