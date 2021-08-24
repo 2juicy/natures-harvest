@@ -15,15 +15,15 @@
     text-shadow: #f8ef42 1px 1.5px;
     position: relative;
     text-align: center;
-  }
 
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    height: 3px;
-    width: 35px;
-    background: linear-gradient(135deg, #0fd64f, #f8ef42);
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      width: 35px;
+      background: linear-gradient(135deg, #0fd64f, #f8ef42);
+    }
   }
 }
 
@@ -54,7 +54,7 @@
   }
 }
 
-form .button {
+form .submit {
   height: 45px;
   margin: 35px 0;
 
