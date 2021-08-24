@@ -47,7 +47,7 @@ export default function Signup() {
           </div>
 
           <div className="go-login">
-            Already have an account? <a href="#">Log In</a>
+            Already have an account? <a href="#/">Log In</a>
           </div>
         </form>
       </div>
