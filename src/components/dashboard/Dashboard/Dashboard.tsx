@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../../authentication/Alert/Alert";
 import FlexContainer from "../../authentication/FlexContainer/FlexContainer";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Dashboard() {
   const [error, setError] = useState("");
@@ -22,13 +22,18 @@ export default function Dashboard() {
 
   return (
     <FlexContainer>
-      <h1 className="title">Dashboard</h1>
-      <p>Email: {currentUser?.email}</p>
-      {error && <Alert variant="alert" message={error} setMessage={setError} />}
+      <div className="dashboard container">
+        <h1 className="title">Dashboard</h1>
+        <p>Email: {currentUser?.email}</p>
+        {error && (
+          <Alert variant="alert" message={error} setMessage={setError} />
+        )}
 
-      <button className="logout" onClick={handleSignout}>
-        Log Out
-      </button>
+        <button className="logout" onClick={handleSignout}>
+          Log Out
+        </button>
+      </div>
+      <Link to="/update-profile">Update Profile</Link>
     </FlexContainer>
   );
 }
