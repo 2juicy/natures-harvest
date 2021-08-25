@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../../authentication/Alert/Alert";
 import FlexContainer from "../../authentication/FlexContainer/FlexContainer";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Dashboard() {
   const [error, setError] = useState("");

@@ -13,6 +13,7 @@ interface Auth {
     password: string
   ) => Promise<firebase.auth.UserCredential>;
   signout: () => Promise<void>;
+  forgotPassword: (email: string) => Promise<void>;
 }
 
 const AuthContext = React.createContext<Auth | null>(null);
@@ -37,6 +38,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return auth.signOut();
   }
 
+  function forgotPassword(email: string) {
+    return auth.sendPasswordResetEmail(email);
+  }
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setLoading(false);
@@ -50,6 +55,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     signup,
     signin,
     signout,
+    forgotPassword,
   };
 
   return (
