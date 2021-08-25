@@ -30,7 +30,7 @@ export default function Signin() {
     <FlexContainer>
       <div className="container">
         <h3 className="title">Sign In</h3>
-        {currentUser && JSON.stringify(currentUser.email)}
+        {currentUser?.email}
         {error && <Alert message={error} setError={setError} />}
         <form onSubmit={handleSubmit}>
           <div className="input-box">
