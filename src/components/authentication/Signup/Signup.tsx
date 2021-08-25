@@ -35,7 +35,9 @@ export default function Signup() {
     <FlexContainer>
       <div className="container">
         <h3 className="title">Sign Up</h3>
-        {error && <Alert message={error} setMessage={setError} />}
+        {error && (
+          <Alert variant="alert" message={error} setMessage={setError} />
+        )}
         <form onSubmit={handleSubmit}>
           <div className="input-box">
             <span className="label">Email</span>

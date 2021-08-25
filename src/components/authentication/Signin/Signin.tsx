@@ -31,7 +31,9 @@ export default function Signin() {
       <div className="container">
         <h3 className="title">Sign In</h3>
         {currentUser?.email}
-        {error && <Alert message={error} setMessage={setError} />}
+        {error && (
+          <Alert variant="alert" message={error} setMessage={setError} />
+        )}
         <form onSubmit={handleSubmit}>
           <div className="input-box">
             <span className="label">Email</span>

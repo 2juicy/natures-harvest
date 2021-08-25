@@ -24,7 +24,7 @@ export default function Dashboard() {
     <FlexContainer>
       <h1 className="title">Dashboard</h1>
       <p>Email: {currentUser?.email}</p>
-      {error && <Alert message={error} setMessage={setError} />}
+      {error && <Alert variant="alert" message={error} setMessage={setError} />}
 
       <button className="logout" onClick={handleSignout}>
         Log Out
