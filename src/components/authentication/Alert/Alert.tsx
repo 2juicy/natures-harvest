@@ -1,16 +1,18 @@
 import "./Alert.scss";
 
 export default function Alert({
+  variant,
   message,
-  setError,
+  setMessage,
 }: {
+  variant: string;
   message: string;
-  setError: (arg: string) => void;
+  setMessage: (arg: string) => void;
 }) {
   return (
-    <div className={`alert ${message ? "show showAlert" : "hide"}`}>
+    <div className={`${variant} ${message ? "show showAlert" : "hide"}`}>
       <span className="msg">{message}</span>
-      <div className="close-btn" onClick={() => setError("")}>
+      <div className="close-btn" onClick={() => setMessage("")}>
         <span className="x-btn">X</span>
       </div>
     </div>
