@@ -4,6 +4,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../../authentication/Alert/Alert";
 import FlexContainer from "../../authentication/FlexContainer/FlexContainer";
 import { Link, useHistory } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 export default function Dashboard() {
   const [error, setError] = useState("");
@@ -22,6 +23,8 @@ export default function Dashboard() {
 
   return (
     <FlexContainer>
+      <Navbar />
+
       <div className="dashboard container">
         <h1 className="title">Dashboard</h1>
         <p>Email: {currentUser?.email}</p>
