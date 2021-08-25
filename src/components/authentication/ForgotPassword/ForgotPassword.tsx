@@ -29,8 +29,8 @@ export default function ForgotPassword() {
     <FlexContainer>
       <div className="container">
         <h3 className="title">Password Recovery</h3>
-        {error && <Alert message={error} setError={setError} />}
-        {message && <Alert message={message} setError={setMessage} />}
+        {error && <Alert message={error} setMessage={setError} />}
+        {message && <Alert message={message} setMessage={setMessage} />}
         <form onSubmit={handleSubmit}>
           <div className="input-box">
             <span className="label">Email</span>
