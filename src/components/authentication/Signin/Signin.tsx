@@ -30,7 +30,6 @@ export default function Signin() {
     <FlexContainer>
       <div className="container">
         <h3 className="title">Sign In</h3>
-        {currentUser?.email}
         {error && (
           <Alert variant="alert" message={error} setMessage={setError} />
         )}
