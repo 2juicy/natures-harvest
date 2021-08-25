@@ -9,6 +9,7 @@ export default function Navbar() {
             Nature's Harvest
           </a>
         </div>
+
         <div className="profile-details">
           <img src={process.env.PUBLIC_URL + "/favicon.png"} alt="User" />
           <span className="user-name">Johnny C.</span>
