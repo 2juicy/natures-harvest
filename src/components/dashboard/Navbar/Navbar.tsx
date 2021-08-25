@@ -5,15 +5,14 @@ export default function Navbar() {
     <nav>
       <div className="navbar">
         <div className="logo">
-          <a className="title" href="#/">
-            Nature's Harvest
-          </a>
+          <img src={process.env.PUBLIC_URL + "/favicon.png"} alt="Logo" />
+          <a href="#/">Nature's Harvest</a>
         </div>
 
         <div className="profile-details">
-          <img src={process.env.PUBLIC_URL + "/favicon.png"} alt="User" />
-          <span className="user-name">Johnny C.</span>
-          <i className="bx bx-chevron-down"></i>
+          <img src={process.env.PUBLIC_URL + "/profile.png"} alt="User" />
+          <span className="profile-name">Johnny C.</span>
+          <i className="bx bx-chevron-down arrow"></i>
         </div>
       </div>
     </nav>

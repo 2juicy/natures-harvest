@@ -15,10 +15,36 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .logo a {
+      color: #fff;
+      font-size: 30px;
+      font-weight: 500;
+      text-decoration: none;
+    }
   }
 
+  .logo,
   .profile-details {
     display: flex;
     align-items: center;
+
+    &:hover .arrow {
+      transform: rotate(180deg);
+    }
+
+    .profile-name,
+    .arrow {
+      height: 100%;
+      color: #fff;
+    }
+    .profile-name {
+      white-space: nowrap;
+    }
+    .arrow {
+      width: 25px;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
   }
 }
