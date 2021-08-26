@@ -1,0 +1,31 @@
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .modal-button-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px black solid;
+  }
+
+  button {
+    margin: 10px 25px;
+    width: 125px;
+  }
+
+  h4 {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+  }
+}
