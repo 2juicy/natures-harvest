@@ -15,7 +15,7 @@ export default function Dashboard() {
     setError("");
     try {
       await signout();
-      history.push("/signin");
+      history.replace("/signin");
     } catch {
       setError("Failed to logout");
     }

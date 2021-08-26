@@ -75,7 +75,7 @@ export default function UpdateProfile() {
             <input disabled={loading} type="submit" value="Update Profile" />
           </div>
 
-          <div className="go-login">
+          <div className="cancel">
             <Link to="/">Cancel</Link>
           </div>
         </form>

@@ -73,7 +73,7 @@ export default function Signup() {
             <input disabled={loading} type="submit" value="Sign Up" />
           </div>
 
-          <div className="go-login">
+          <div className="cancel">
             Already have an account? <Link to="/signin">Log In</Link>
           </div>
         </form>

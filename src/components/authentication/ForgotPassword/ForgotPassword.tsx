@@ -50,7 +50,7 @@ export default function ForgotPassword() {
             <input disabled={loading} type="submit" value="Reset Password" />
           </div>
 
-          <div className="go-login">
+          <div className="cancel">
             Need an account? <Link to="/signup">Sign Up</Link>
           </div>
         </form>
