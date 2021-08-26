@@ -1,11 +1,11 @@
 import "./Alert.scss";
 
 export default function Alert({
-  variant,
+  variant = "alert",
   message,
   setMessage,
 }: {
-  variant: string;
+  variant?: "alert" | "warning";
   message: string;
   setMessage: (arg: string) => void;
 }) {

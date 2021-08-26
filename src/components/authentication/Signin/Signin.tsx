@@ -7,14 +7,13 @@ import { Link, useHistory } from "react-router-dom";
 export default function Signin() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const { signin, currentUser } = useAuth();
+  const { signin } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-
     try {
       setError("");
       setLoading(true);
@@ -22,6 +21,7 @@ export default function Signin() {
       history.push("/");
     } catch {
       setError("Failed to sign in!");
+      setLoading(false);
     }
   }
 
@@ -29,7 +29,6 @@ export default function Signin() {
     <FlexContainer>
       <div className="container">
         <h3 className="title">Sign In</h3>
-        {currentUser?.email}
         {error && (
           <Alert variant="alert" message={error} setMessage={setError} />
         )}
