@@ -1,6 +1,6 @@
 import "./App.scss";
 import { AuthProvider } from "./contexts/AuthContext";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "./components/dashboard/Dashboard/Dashboard";
 import Signup from "./components/authentication/Signup/Signup";
 import Signin from "./components/authentication/Signin/Signin";
@@ -10,7 +10,7 @@ import UpdateProfile from "./components/authentication/UpdateProfile/UpdateProfi
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <AuthProvider>
         <Switch>
           <PrivateRoute exact path="/" component={Dashboard} />

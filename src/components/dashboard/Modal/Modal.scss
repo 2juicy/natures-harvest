@@ -1,0 +1,49 @@
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+
+    .input-box {
+      margin: 0px 15px;
+    }
+
+    .modal-button-group {
+      margin: 15px;
+      border-radius: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .cancel {
+        background: #0f0f0fad;
+      }
+
+      button,
+      .submit {
+        margin: 5px 15px;
+        width: 125px;
+      }
+    }
+  }
+
+  h4 {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+  }
+}
