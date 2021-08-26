@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./AddPlant.scss";
 import { database } from "../../../firebase";
 import Modal from "../Modal/Modal";
+import { useAuth } from "../../../contexts/AuthContext";
 
 export default function AddPlant() {
   const [modal, setModal] = useState(false);
@@ -9,6 +10,7 @@ export default function AddPlant() {
     name: "",
     type: "",
   });
+  const { currentUser } = useAuth();
 
   function handleForm(e: React.ChangeEvent<HTMLInputElement>) {
     setPlant({
@@ -27,7 +29,11 @@ export default function AddPlant() {
 
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-    database.plants.add(plant);
+    database.plants.add({
+      ...plant,
+      userId: currentUser.uid,
+      createdAt: database.getCurrentTimestamp(),
+    });
     setPlant({
       name: "",
       type: "",
