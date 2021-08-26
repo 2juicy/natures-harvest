@@ -3,7 +3,7 @@ import "./Modal.scss";
 export default function Modal({ close }: { close: () => void }) {
   return (
     <div className="modal">
-      <div>
+      <form>
         <h2 className="title">Add a new plant</h2>
         <div className="input-box">
           <span className="label">Name</span>
@@ -17,9 +17,11 @@ export default function Modal({ close }: { close: () => void }) {
           <button className="cancel" onClick={close}>
             Cancel
           </button>
-          <button onClick={close}>Add</button>
+          <div className="submit">
+            <input onClick={close} type="submit" value="Add" />
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
