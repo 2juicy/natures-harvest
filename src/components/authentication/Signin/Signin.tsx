@@ -14,7 +14,6 @@ export default function Signin() {
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-
     try {
       setError("");
       setLoading(true);
@@ -22,8 +21,8 @@ export default function Signin() {
       history.push("/");
     } catch {
       setError("Failed to sign in!");
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (
