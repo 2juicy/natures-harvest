@@ -1,3 +1,12 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(125deg, #0fd64f, #f8ef42);
+}
+
 .container {
   max-width: 700px;
   width: 100%;

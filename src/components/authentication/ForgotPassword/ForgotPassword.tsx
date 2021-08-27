@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import FlexContainer from "../FlexContainer/FlexContainer";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
 import { Link } from "react-router-dom";
@@ -26,7 +25,7 @@ export default function ForgotPassword() {
   }
 
   return (
-    <FlexContainer>
+    <div className="flex-container">
       <div className="container">
         <h3 className="title">Password Recovery</h3>
         {error && (
@@ -56,6 +55,6 @@ export default function ForgotPassword() {
         </form>
       </div>
       <Link to="/signin">Sign In</Link>
-    </FlexContainer>
+    </div>
   );
 }

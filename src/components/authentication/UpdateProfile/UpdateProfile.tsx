@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import FlexContainer from "../FlexContainer/FlexContainer";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
 import { Link, useHistory } from "react-router-dom";
