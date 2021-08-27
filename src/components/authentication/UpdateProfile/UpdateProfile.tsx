@@ -35,7 +35,7 @@ export default function UpdateProfile() {
   }
 
   return (
-    <FlexContainer>
+    <div className="flex-container">
       <div className="container">
         <h3 className="title">Update Profile</h3>
         {error && (
@@ -80,6 +80,6 @@ export default function UpdateProfile() {
           </div>
         </form>
       </div>
-    </FlexContainer>
+    </div>
   );
 }

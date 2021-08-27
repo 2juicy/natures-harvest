@@ -3,8 +3,14 @@ import "./FlexContainer.scss";
 
 export default function FlexContainer({
   children,
+  style = {},
 }: {
+  style?: Object;
   children: React.ReactNode;
 }) {
-  return <div className="flex-container">{children}</div>;
+  return (
+    <div style={style} className="flex-container">
+      {children}
+    </div>
+  );
 }

@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import FlexContainer from "../FlexContainer/FlexContainer";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
 import { Link, useHistory } from "react-router-dom";
@@ -26,7 +25,7 @@ export default function Signin() {
   }
 
   return (
-    <FlexContainer>
+    <div className="flex-container">
       <div className="container">
         <h3 className="title">Sign In</h3>
         {error && (
@@ -63,6 +62,6 @@ export default function Signin() {
         </form>
       </div>
       <Link to="/forgot-password">Forgot Password?</Link>
-    </FlexContainer>
+    </div>
   );
 }
