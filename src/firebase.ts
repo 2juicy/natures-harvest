@@ -15,6 +15,9 @@ const firestore = app.firestore();
 export const database = {
   plants: firestore.collection("plants"),
   statuses: firestore.collection("statuses"),
+  formatDoc: (doc: firebase.firestore.DocumentData) => {
+    return { id: doc.id, ...doc.data() };
+  },
   getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp,
 };
 
