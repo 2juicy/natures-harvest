@@ -30,7 +30,7 @@ export default function Navbar() {
 
         <div className="profile-details">
           <img src={process.env.PUBLIC_URL + "/profile.png"} alt="User" />
-          <span className="profile-name">Johnny C.</span>
+          <span className="profile-name">User12345</span>
           <i className="bx bx-chevron-down arrow"></i>
           <ul className="sub-menu">
             <li>

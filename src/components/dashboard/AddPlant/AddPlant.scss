@@ -1,20 +1,11 @@
 @import "../../../styles/shared.scss";
 
 .add-plant {
-  color: #fff;
-  border: none;
-  font-size: 18px;
-  font-weight: 500;
-  border-radius: 5px;
-  letter-spacing: 1px;
-  text-shadow: $secondary-color 1px 0.5px;
-  background-image: linear-gradient(75deg, $primary-color, $secondary-color);
-  background-size: 150%;
-  background-position: left;
-  transition: 300ms background-position ease-in-out;
-
-  &:hover {
-    text-shadow: $primary-color 0.5px 1px;
-    background-position: right;
-  }
+  position: absolute;
+  left: -20px;
+  top: -15px;
+  border: 1px solid $secondary-color !important;
+  font-size: 25px !important;
+  width: 45px !important;
+  border-radius: 25px !important;
 }

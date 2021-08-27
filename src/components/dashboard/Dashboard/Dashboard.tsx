@@ -7,12 +7,13 @@ export default function Dashboard() {
   const { currentUser } = useAuth();
 
   return (
-    <div className="flex-container">
+    <div className="dashboard-flex-container">
+      <Navbar />
+
+      <h1 className="title">{currentUser?.email}'s Dashboard</h1>
+
       <div className="dashboard container">
-        <Navbar />
-        <h1 className="title">Dashboard</h1>
-        <h4>Welcome to Nature's Harvest!</h4>
-        <p>Email: {currentUser?.email}</p>
+        No content here yet
         <AddPlant />
       </div>
     </div>
