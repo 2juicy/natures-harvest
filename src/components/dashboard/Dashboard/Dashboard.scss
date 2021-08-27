@@ -58,3 +58,19 @@
     }
   }
 }
+
+@media (max-width: 584px) {
+  .dashboard-flex-container {
+    .title {
+      font-size: 24px;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    .dashboard {
+      max-width: 100%;
+    }
+  }
+}
