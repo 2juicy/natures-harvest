@@ -1,27 +1,76 @@
-.dashboard {
+@import "../../../styles/shared.scss";
+
+.dashboard-flex-container {
+  height: 100vh;
+  background-image: linear-gradient(75deg, $primary-color, $secondary-color);
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  button {
-    height: 45px;
-    width: 100%;
-    outline: none;
-    color: #fff;
-    border: none;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    text-shadow: #f8ef42 1px 0.5px;
-    background-image: linear-gradient(75deg, #0fd64f, #f8ef42);
-    background-size: 150%;
-    background-position: left;
-    transition: 300ms background-position ease-in-out;
+  .dashboard {
+    position: relative;
+    max-width: 95%;
+    display: flex;
+    justify-content: space-between;
 
-    &:hover {
-      text-shadow: #0fd64f 0.5px 1px;
-      background-position: right;
+    button {
+      height: 45px;
+      width: 100%;
+      outline: none;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 5px;
+      letter-spacing: 1px;
+      text-shadow: $secondary-color 1px 0.5px;
+      background-image: linear-gradient(
+        75deg,
+        $primary-color,
+        $secondary-color
+      );
+      background-size: 150%;
+      background-position: left;
+      transition: 300ms background-position ease-in-out;
+
+      &:hover {
+        text-shadow: $primary-color 0.5px 1px;
+        background-position: right;
+      }
+    }
+  }
+
+  .title {
+    font-size: 26px;
+    color: #fff;
+    text-shadow: $secondary-color 1px 1.5px;
+    position: relative;
+    text-align: center;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      width: 35px;
+      background: #fff;
+    }
+  }
+}
+
+@media (max-width: 584px) {
+  .dashboard-flex-container {
+    .title {
+      font-size: 24px;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    .dashboard {
+      max-width: 100%;
     }
   }
 }

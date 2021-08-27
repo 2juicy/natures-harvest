@@ -3,6 +3,7 @@ import "./AddPlant.scss";
 import { database } from "../../../firebase";
 import Modal from "../Modal/Modal";
 import { useAuth } from "../../../contexts/AuthContext";
+import AddPlantForm from "../AddPlantForm/AddPlantForm";
 
 export default function AddPlant() {
   const [modal, setModal] = useState(false);
@@ -44,14 +45,16 @@ export default function AddPlant() {
   return (
     <>
       <button className="add-plant" onClick={() => setModal(true)}>
-        Add Plant
+        +
       </button>
       {modal && (
-        <Modal
-          close={handleClose}
-          handleForm={handleForm}
-          handleSubmit={handleSubmit}
-        />
+        <Modal>
+          <AddPlantForm
+            close={handleClose}
+            handleForm={handleForm}
+            handleSubmit={handleSubmit}
+          />
+        </Modal>
       )}
     </>
   );

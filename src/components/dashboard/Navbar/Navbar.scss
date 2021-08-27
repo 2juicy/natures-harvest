@@ -84,3 +84,14 @@ nav {
     }
   }
 }
+
+@media (max-width: 584px) {
+  nav .navbar {
+    padding: 0px;
+
+    .logo a {
+      font-size: 22px;
+      line-height: 25px;
+    }
+  }
+}

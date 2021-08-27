@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import FlexContainer from "../FlexContainer/FlexContainer";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
 import { Link, useHistory } from "react-router-dom";
@@ -35,7 +34,7 @@ export default function UpdateProfile() {
   }
 
   return (
-    <FlexContainer>
+    <div className="flex-container">
       <div className="container">
         <h3 className="title">Update Profile</h3>
         {error && (
@@ -80,6 +79,6 @@ export default function UpdateProfile() {
           </div>
         </form>
       </div>
-    </FlexContainer>
+    </div>
   );
 }
