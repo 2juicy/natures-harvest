@@ -15,15 +15,14 @@ export default function Dashboard() {
       .orderBy("createdAt")
       .onSnapshot(snapshot => {
         setPlants(snapshot.docs.map(database.formatDoc));
-        console.log(plants[0].lastUpdated);
       });
   }, [currentUser]);
 
   return (
-    <div className="dashboard-flex-container">
+    <div className="table-flex-container">
       <Navbar />
       <h1 className="title">{currentUser?.email}'s plants</h1>
-      <div className="dashboard container">
+      <div className="table container">
         <AddPlant />
         {plants ? (
           <table className="plants-table">
@@ -40,10 +39,10 @@ export default function Dashboard() {
                 <tr key={plant.id}>
                   <td>{plant.name}</td>
                   <td>{plant.type}</td>
-                  <td>DATE NEEDS FIX</td>
+                  <td>{plant.lastUpdated.toDate().toDateString()}</td>
                   <td>
-                    <button>Update</button>
-                    <button>Delete</button>
+                    <button className="update-btn">Update</button>
+                    <button className="delete-btn">Delete</button>
                   </td>
                 </tr>
               ))}
