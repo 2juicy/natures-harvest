@@ -40,7 +40,7 @@ export default function Dashboard() {
                   <td>{plant.name}</td>
                   <td>{plant.type}</td>
                   <td>{plant.lastUpdated.toDate().toDateString()}</td>
-                  <td>
+                  <td className="table-btns">
                     <button className="update-btn">Update</button>
                     <button className="delete-btn">Delete</button>
                   </td>
