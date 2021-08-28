@@ -3,6 +3,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import { database } from "../../../firebase";
 import Navbar from "../Navbar/Navbar";
 import AddPlant from "../AddPlant/AddPlant";
+import "./Table.scss";
 
 export default function Dashboard() {
   const { currentUser } = useAuth();
@@ -14,6 +15,7 @@ export default function Dashboard() {
       .orderBy("createdAt")
       .onSnapshot(snapshot => {
         setPlants(snapshot.docs.map(database.formatDoc));
+        console.log(plants[0].lastUpdated);
       });
   }, [currentUser]);
 
@@ -24,7 +26,7 @@ export default function Dashboard() {
       <div className="dashboard container">
         <AddPlant />
         {plants ? (
-          <table>
+          <table className="plants-table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -34,11 +36,11 @@ export default function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {plants.map((plant: any) => (
+              {plants.map(plant => (
                 <tr key={plant.id}>
                   <td>{plant.name}</td>
                   <td>{plant.type}</td>
-                  <td>{plant.lastUpdated}</td>
+                  <td>DATE NEEDS FIX</td>
                   <td>
                     <button>Update</button>
                     <button>Delete</button>

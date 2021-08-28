@@ -24,8 +24,7 @@ export default function Dashboard() {
       <h1 className="title">{currentUser?.email}'s plants</h1>
       <div className="dashboard container">
         <AddPlant />
-
-        <h4>No plants yet! Add one with the + button.</h4>
+        <h4>This dashboard is not complete</h4>
       </div>
     </div>
   );
