@@ -59,5 +59,4 @@ Share your solution via URL to your git repository and would be cool to either d
 - http://auth0.com/
 - https://hasura.io
 - https://medium.com/@Ari_n/8-weather-api-alternatives-now-that-darksky-is-shutting-down-42a5ac395f93
-
-  <details>
+</details>
