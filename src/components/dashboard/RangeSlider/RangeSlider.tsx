@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./RangeSlider.scss";
 
 export default function RangeSlider() {
-  const [value, setValue] = useState(100);
+  const [value, setValue] = useState(50);
   const [show, setShow] = useState("");
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
@@ -23,11 +23,11 @@ export default function RangeSlider() {
         <div className="field" tabIndex={0}>
           <div className="value left">0</div>
           <input
-            onMouseUp={() => setShow("")}
+            onBlur={() => setShow("")}
             onInput={handleInput}
             type="range"
             min="10"
-            max="200"
+            max="100"
             value={value}
             step="1"
           />
