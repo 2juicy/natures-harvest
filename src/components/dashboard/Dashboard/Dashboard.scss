@@ -4,15 +4,11 @@
   height: 100vh;
   background-image: linear-gradient(75deg, $primary-color, $secondary-color);
   margin-top: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   .dashboard {
     position: relative;
+    margin: auto;
     max-width: 95%;
-    display: flex;
-    justify-content: space-between;
 
     button {
       height: 45px;
