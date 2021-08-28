@@ -33,15 +33,17 @@ export default function Navbar() {
           <span className="profile-name">User12345</span>
           <i className="bx bx-chevron-down arrow"></i>
           <ul className="sub-menu">
-            {history.location.pathname === "/" ? (
-              <li>
-                <NavLink to="/plants">Plants</NavLink>
-              </li>
-            ) : (
-              <li>
-                <NavLink to="/">Dashboard</NavLink>
-              </li>
-            )}
+            <li>
+              <NavLink exact to="/" activeStyle={{ display: "none" }}>
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/plants" activeStyle={{ display: "none" }}>
+                Plants
+              </NavLink>
+            </li>
+
             <li>
               <NavLink to="/update-profile">Update Profile</NavLink>
             </li>
