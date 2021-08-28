@@ -34,6 +34,7 @@ export default function AddPlant() {
       ...plant,
       userId: currentUser.uid,
       createdAt: database.getCurrentTimestamp(),
+      lastUpdated: database.getCurrentTimestamp(),
     });
     setPlant({
       name: "",

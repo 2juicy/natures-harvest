@@ -1,14 +1,18 @@
 @import "../../../styles/shared.scss";
 
-.dashboard-flex-container {
+.table-flex-container {
   height: 100vh;
   background-image: linear-gradient(75deg, $primary-color, $secondary-color);
   margin-top: 70px;
 
-  .dashboard {
+  .table {
     position: relative;
     margin: auto;
     max-width: 95%;
+
+    .plants-table {
+      width: 100%;
+    }
   }
 
   .title {
@@ -29,18 +33,6 @@
   }
 }
 
-@media (max-width: 584px) {
-  .dashboard-flex-container {
-    .title {
-      font-size: 24px;
-
-      &:before {
-        content: none;
-      }
-    }
-
-    .dashboard {
-      max-width: 100%;
-    }
-  }
+.table-btns {
+  text-align: center;
 }

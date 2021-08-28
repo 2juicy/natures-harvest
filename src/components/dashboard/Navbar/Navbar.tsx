@@ -2,7 +2,7 @@ import "./Navbar.scss";
 import { useState } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../../authentication/Alert/Alert";
-import { Link, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 export default function Navbar() {
   const [error, setError] = useState("");
@@ -33,8 +33,17 @@ export default function Navbar() {
           <span className="profile-name">User12345</span>
           <i className="bx bx-chevron-down arrow"></i>
           <ul className="sub-menu">
+            {history.location.pathname === "/" ? (
+              <li>
+                <NavLink to="/plants">Plants</NavLink>
+              </li>
+            ) : (
+              <li>
+                <NavLink to="/">Dashboard</NavLink>
+              </li>
+            )}
             <li>
-              <Link to="/update-profile">Update Profile</Link>
+              <NavLink to="/update-profile">Update Profile</NavLink>
             </li>
             <li>
               <a href="#/" onClick={handleSignout}>

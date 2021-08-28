@@ -28,7 +28,7 @@ export default function UpdateProfile() {
 
     Promise.all(promises)
       .then(() => history.push("/"))
-      .catch(() => setError("Failed to update profile"))
+      .catch(err => setError(err.message))
       .finally(() => setLoading(false));
     setLoading(false);
   }
