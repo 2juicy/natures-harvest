@@ -35,4 +35,20 @@
 
 .table-btns {
   text-align: center;
+
+  .update-btn,
+  .delete-btn {
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+
+  .update-btn {
+    background-color: $primary-color;
+  }
+  .delete-btn {
+    background-color: red;
+  }
 }

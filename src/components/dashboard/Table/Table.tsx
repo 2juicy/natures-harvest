@@ -41,8 +41,12 @@ export default function Dashboard() {
                   <td>{plant.type}</td>
                   <td>{plant.lastUpdated.toDate().toDateString()}</td>
                   <td className="table-btns">
-                    <button className="update-btn">Update</button>
-                    <button className="delete-btn">Delete</button>
+                    <button className="update-btn">
+                      <i className="bx bxs-calendar-plus"></i>
+                    </button>
+                    <button className="delete-btn">
+                      <i className="bx bxs-trash"></i>
+                    </button>
                   </td>
                 </tr>
               ))}
