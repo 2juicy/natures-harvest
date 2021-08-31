@@ -13,25 +13,24 @@ export default function RangeSlider() {
   return (
     <div className="grid-container">
       <div className="range">
-        <div
-          style={{ left: value / 2 + "%" }}
-          className={`sliderValue ${show}`}
-        >
+        <h4>Soil Moisture %</h4>
+
+        <div style={{ left: value + "%" }} className={`sliderValue ${show}`}>
           <span>{value}</span>
         </div>
 
-        <div className="field" tabIndex={0}>
+        <div className="field">
           <div className="value left">0</div>
           <input
             onBlur={() => setShow("")}
             onInput={handleInput}
             type="range"
-            min="10"
+            min="0"
             max="100"
             value={value}
             step="1"
           />
-          <div className="value right">200</div>
+          <div className="value right">100</div>
         </div>
       </div>
     </div>

@@ -11,8 +11,6 @@ export default function Dashboard() {
       <Navbar />
       <h1 className="title">{currentUser?.email}'s dashboard</h1>
       <div className="dashboard container">
-        <h4>This dashboard is not complete</h4>
-
         <RangeSlider />
       </div>
     </div>
