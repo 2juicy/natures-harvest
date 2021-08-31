@@ -20,6 +20,10 @@
     display: flex;
     flex-direction: column;
 
+    .title {
+      color: #0fd64f;
+    }
+
     .input-box {
       margin: 0px 15px;
     }
@@ -32,6 +36,13 @@
       justify-content: space-between;
 
       .cancel {
+        outline: none;
+        color: #fff;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 5px;
+        letter-spacing: 1px;
         background: #0f0f0fad;
       }
 
@@ -41,10 +52,5 @@
         width: 125px;
       }
     }
-  }
-
-  h4 {
-    color: white;
-    text-shadow: 1px 1px 1px black;
   }
 }

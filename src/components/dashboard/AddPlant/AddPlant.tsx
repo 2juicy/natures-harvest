@@ -43,6 +43,7 @@ export default function AddPlant() {
     setModal(false);
   }
 
+  // database.plants.document(plant.id).collection("status");
   return (
     <>
       <button className="add-plant" onClick={() => setModal(true)}>
