@@ -39,7 +39,7 @@ export default function Dashboard() {
                 <tr key={plant.id}>
                   <td>{plant.name}</td>
                   <td>{plant.type}</td>
-                  <td>{plant.lastUpdated.toDate().toDateString()}</td>
+                  <td>{plant.lastUpdated?.toDate().toDateString()}</td>
                   <td className="table-btns">
                     <button className="update-btn">
                       <i className="bx bxs-calendar-plus"></i>
