@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import firebase from "firebase/compat/app";
+import firebase from "firebase/app";
 import { auth } from "../firebase";
 
 interface Auth {
