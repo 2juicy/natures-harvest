@@ -1,5 +1,7 @@
 ## `Quick start`
 
+You will need your own Firebase API keys for this application to run.
+
 In the project directory terminal, you can run:
 
 ### `npm install`
