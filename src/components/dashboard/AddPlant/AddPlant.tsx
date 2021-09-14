@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./AddPlant.scss";
 import { database } from "../../../firebase";
 import Modal from "../Modal/Modal";
@@ -7,38 +7,17 @@ import AddPlantForm from "../AddPlantForm/AddPlantForm";
 
 export default function AddPlant() {
   const [modal, setModal] = useState(false);
-  const [plant, setPlant] = useState({
-    name: "",
-    type: "",
-  });
+  const plantRef = useRef<HTMLInputElement>();
   const { currentUser } = useAuth();
-
-  function handleForm(e: React.ChangeEvent<HTMLInputElement>) {
-    setPlant({
-      ...plant,
-      [e.target.name]: e.target.value,
-    });
-  }
-
-  function handleClose() {
-    setPlant({
-      name: "",
-      type: "",
-    });
-    setModal(false);
-  }
 
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     database.plants.add({
-      ...plant,
+      name: plantRef.current?.name,
+      type: plantRef.current?.type,
       userId: currentUser.uid,
       createdAt: database.getCurrentTimestamp(),
       lastUpdated: database.getCurrentTimestamp(),
-    });
-    setPlant({
-      name: "",
-      type: "",
     });
     setModal(false);
   }
@@ -52,9 +31,9 @@ export default function AddPlant() {
       {modal && (
         <Modal>
           <AddPlantForm
-            close={handleClose}
-            handleForm={handleForm}
+            close={() => setModal(false)}
             handleSubmit={handleSubmit}
+            ref={plantRef}
           />
         </Modal>
       )}
