@@ -1,16 +1,23 @@
-import React from "react";
+import React, { forwardRef, useRef, useImperativeHandle } from "react";
 
 interface Props {
   close: () => void;
-  handleForm: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.SyntheticEvent) => void;
 }
 
-export default function AddPlantForm({
-  close,
-  handleForm,
-  handleSubmit,
-}: Props) {
+const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
+  const nameRef = useRef<HTMLInputElement>(null);
+  const typeRef = useRef<HTMLInputElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    get name() {
+      return nameRef.current?.value;
+    },
+    get type() {
+      return typeRef.current?.value;
+    },
+  }));
+
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="title">Add a new plant</h2>
@@ -20,7 +27,7 @@ export default function AddPlantForm({
           name="name"
           placeholder="Enter plant name"
           type="text"
-          onChange={handleForm}
+          ref={nameRef}
           required
         />
       </div>
@@ -30,7 +37,7 @@ export default function AddPlantForm({
           name="type"
           placeholder="Enter plant type"
           type="text"
-          onChange={handleForm}
+          ref={typeRef}
         />
       </div>
       <div className="modal-button-group">
@@ -43,4 +50,6 @@ export default function AddPlantForm({
       </div>
     </form>
   );
-}
+});
+
+export default AddPlantForm;
