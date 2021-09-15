@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import useToggle from "../../../hooks/useToggle";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
 import { Link } from "react-router-dom";
@@ -8,7 +9,7 @@ export default function ForgotPassword() {
   const { forgotPassword } = useAuth();
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useToggle(false);
 
   useEffect(() => {
     emailRef.current?.focus();

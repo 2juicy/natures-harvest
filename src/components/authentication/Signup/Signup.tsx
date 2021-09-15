@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import useToggle from "../../../hooks/useToggle";
 import "./Signup.scss";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
@@ -10,7 +11,7 @@ export default function Signup() {
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
   const { signup } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useToggle(false);
   const history = useHistory();
 
   useEffect(() => {
