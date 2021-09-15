@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Signup.scss";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
@@ -12,6 +12,18 @@ export default function Signup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+
+  useEffect(() => {
+    emailRef.current?.focus();
+  }, []);
+
+  function emailKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") passwordRef.current?.focus();
+  }
+
+  function passwordKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") confirmPasswordRef.current?.focus();
+  }
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -44,6 +56,7 @@ export default function Signup() {
               ref={emailRef}
               placeholder="Enter your Email"
               type="email"
+              onKeyDown={emailKeyDown}
               required
             />
           </div>
@@ -54,6 +67,7 @@ export default function Signup() {
               ref={passwordRef}
               placeholder="Enter your password"
               type="password"
+              onKeyDown={passwordKeyDown}
               required
             />
           </div>
