@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
 import { Link, useHistory } from "react-router-dom";
@@ -10,6 +10,14 @@ export default function Signin() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+
+  useEffect(() => {
+    emailRef.current?.focus();
+  }, []);
+
+  function emailKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") passwordRef.current?.focus();
+  }
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -38,6 +46,7 @@ export default function Signin() {
               ref={emailRef}
               placeholder="Enter your Email"
               type="email"
+              onKeyDown={emailKeyDown}
               required
             />
           </div>
