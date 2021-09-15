@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
 import { Link } from "react-router-dom";
@@ -9,6 +9,10 @@ export default function ForgotPassword() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    emailRef.current?.focus();
+  }, []);
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();

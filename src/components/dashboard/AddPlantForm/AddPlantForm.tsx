@@ -1,4 +1,9 @@
-import React, { forwardRef, useRef, useImperativeHandle } from "react";
+import React, {
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+  useEffect,
+} from "react";
 
 interface Props {
   close: () => void;
@@ -8,6 +13,10 @@ interface Props {
 const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
   const nameRef = useRef<HTMLInputElement>(null);
   const typeRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    nameRef.current?.focus();
+  }, []);
 
   useImperativeHandle(ref, () => ({
     get name() {
