@@ -26,13 +26,13 @@ export default function AddPlant() {
   // database.plants.document(plant.id).collection("status");
   return (
     <>
-      <button className="add-plant" onClick={() => toggleModal(true)}>
+      <button className="add-plant" onClick={toggleModal}>
         +
       </button>
       {modal && (
         <Modal>
           <AddPlantForm
-            close={() => toggleModal(false)}
+            close={toggleModal}
             handleSubmit={handleSubmit}
             ref={plantRef}
           />
