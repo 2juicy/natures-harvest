@@ -8,6 +8,7 @@ export default function UpdateProfile() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
   const { currentUser, updatePassword, updateEmail } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,6 +17,18 @@ export default function UpdateProfile() {
   useEffect(() => {
     emailRef.current?.focus();
   }, []);
+
+  function emailKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") passwordRef.current?.focus();
+  }
+
+  function passwordKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") confirmPasswordRef.current?.focus();
+  }
+
+  function confirmPasswordKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") submitRef.current?.focus();
+  }
 
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -52,6 +65,7 @@ export default function UpdateProfile() {
             ref={emailRef}
             placeholder="Enter your Email"
             type="email"
+            onKeyDown={emailKeyDown}
             required
             defaultValue={currentUser.email}
           />
@@ -63,6 +77,7 @@ export default function UpdateProfile() {
             ref={passwordRef}
             placeholder="Leave blank to keep the same"
             type="password"
+            onKeyDown={passwordKeyDown}
           />
         </div>
 
@@ -72,10 +87,18 @@ export default function UpdateProfile() {
             ref={confirmPasswordRef}
             placeholder="Confirm change password"
             type="password"
+            onKeyDown={confirmPasswordKeyDown}
           />
         </div>
 
-        <button className="update" disabled={loading} type="button">
+        <button
+          className="update"
+          disabled={loading}
+          type="button"
+          ref={submitRef}
+          onKeyDown={handleSubmit}
+          onClick={handleSubmit}
+        >
           Update Profile
         </button>
 
