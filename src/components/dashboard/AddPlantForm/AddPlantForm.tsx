@@ -27,8 +27,12 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
     },
   }));
 
+  function nameKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") typeRef.current?.focus();
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="add-plant-form">
       <h2 className="title">Add a new plant</h2>
       <div className="input-box">
         <span className="label">Name</span>
@@ -37,6 +41,7 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
           placeholder="Enter plant name"
           type="text"
           ref={nameRef}
+          onKeyDown={nameKeyDown}
           required
         />
       </div>
@@ -53,11 +58,11 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
         <button type="button" className="cancel" onClick={close}>
           Cancel
         </button>
-        <div className="submit">
-          <input type="submit" value="Add" />
-        </div>
+        <button type="button" className="submit">
+          Add
+        </button>
       </div>
-    </form>
+    </div>
   );
 });
 
