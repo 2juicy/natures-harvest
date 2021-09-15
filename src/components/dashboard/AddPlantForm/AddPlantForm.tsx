@@ -13,6 +13,7 @@ interface Props {
 const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
   const nameRef = useRef<HTMLInputElement>(null);
   const typeRef = useRef<HTMLInputElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     nameRef.current?.focus();
@@ -29,6 +30,10 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
 
   function nameKeyDown(e: React.KeyboardEvent) {
     if (e.key === "Enter") typeRef.current?.focus();
+  }
+
+  function typeKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") submitRef.current?.focus();
   }
 
   return (
@@ -51,6 +56,7 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
           name="type"
           placeholder="Enter plant type"
           type="text"
+          onKeyDown={typeKeyDown}
           ref={typeRef}
         />
       </div>
@@ -58,7 +64,13 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
         <button type="button" className="cancel" onClick={close}>
           Cancel
         </button>
-        <button type="button" className="submit">
+        <button
+          type="button"
+          className="submit"
+          ref={submitRef}
+          onClick={handleSubmit}
+          onKeyDown={handleSubmit}
+        >
           Add
         </button>
       </div>
