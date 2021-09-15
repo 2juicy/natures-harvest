@@ -1,22 +1,17 @@
 import { useState, useCallback } from "react";
 
-export type Set = (arg0: boolean) => void;
-export type Toggle = () => void;
+export type Toggle = (arg0: boolean) => void;
 
-export default function useToggle(
-  initialValue = false
-): [boolean, Set, Toggle] {
+export default function useToggle(initialValue: boolean): [boolean, Toggle] {
   const [value, setValue] = useState(initialValue);
 
-  const setBoolean = useCallback(
-    (value: boolean) => setValue(value),
-    [setValue]
-  );
-
   const toggleValue = useCallback(
-    () => setValue(currentValue => !currentValue),
+    (value: boolean) =>
+      setValue(currentValue =>
+        typeof value === "boolean" ? value : !currentValue
+      ),
     [setValue]
   );
 
-  return [value, setBoolean, toggleValue];
+  return [value, toggleValue];
 }

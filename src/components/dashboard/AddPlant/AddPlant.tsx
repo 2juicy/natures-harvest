@@ -7,7 +7,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import AddPlantForm from "../AddPlantForm/AddPlantForm";
 
 export default function AddPlant() {
-  const [modal, setModal, toggleModal] = useToggle(false);
+  const [modal, toggleModal] = useToggle(false);
   const plantRef = useRef<HTMLInputElement>(null);
   const { currentUser } = useAuth();
 
@@ -20,19 +20,19 @@ export default function AddPlant() {
       createdAt: database.getCurrentTimestamp(),
       lastUpdated: database.getCurrentTimestamp(),
     });
-    setModal(false);
+    toggleModal(false);
   }
 
   // database.plants.document(plant.id).collection("status");
   return (
     <>
-      <button className="add-plant" onClick={toggleModal}>
+      <button className="add-plant" onClick={() => toggleModal(true)}>
         +
       </button>
       {modal && (
         <Modal>
           <AddPlantForm
-            close={toggleModal}
+            close={() => toggleModal(false)}
             handleSubmit={handleSubmit}
             ref={plantRef}
           />
