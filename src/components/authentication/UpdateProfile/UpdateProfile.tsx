@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import useToggle from "../../../hooks/useToggle";
 import "./UpdateProfile.scss";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
@@ -11,7 +12,7 @@ export default function UpdateProfile() {
   const submitRef = useRef<HTMLButtonElement>(null);
   const { currentUser, updatePassword, updateEmail } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useToggle(false);
   const history = useHistory();
 
   useEffect(() => {

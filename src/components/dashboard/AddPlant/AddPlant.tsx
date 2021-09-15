@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
+import useToggle from "../../../hooks/useToggle";
 import "./AddPlant.scss";
 import { database } from "../../../firebase";
 import Modal from "../Modal/Modal";
@@ -6,8 +7,8 @@ import { useAuth } from "../../../contexts/AuthContext";
 import AddPlantForm from "../AddPlantForm/AddPlantForm";
 
 export default function AddPlant() {
-  const [modal, setModal] = useState(false);
-  const plantRef = useRef<HTMLInputElement>();
+  const [modal, toggleModal] = useToggle(false);
+  const plantRef = useRef<HTMLInputElement>(null);
   const { currentUser } = useAuth();
 
   function handleSubmit(e: React.SyntheticEvent) {
@@ -19,19 +20,19 @@ export default function AddPlant() {
       createdAt: database.getCurrentTimestamp(),
       lastUpdated: database.getCurrentTimestamp(),
     });
-    setModal(false);
+    toggleModal(false);
   }
 
   // database.plants.document(plant.id).collection("status");
   return (
     <>
-      <button className="add-plant" onClick={() => setModal(true)}>
+      <button className="add-plant" onClick={() => toggleModal(true)}>
         +
       </button>
       {modal && (
         <Modal>
           <AddPlantForm
-            close={() => setModal(false)}
+            close={() => toggleModal(false)}
             handleSubmit={handleSubmit}
             ref={plantRef}
           />
