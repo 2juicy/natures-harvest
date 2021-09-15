@@ -6,6 +6,7 @@
   margin-top: 70px;
 
   .table {
+    text-align: left;
     position: relative;
     margin: auto;
     max-width: 95%;
@@ -34,13 +35,11 @@
 }
 
 .table-btns {
-  text-align: center;
-
   .update-btn,
   .delete-btn {
     border: none;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 5px;
     margin-left: 5px;
   }

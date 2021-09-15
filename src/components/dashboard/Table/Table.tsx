@@ -18,6 +18,19 @@ export default function Dashboard() {
       });
   }, [currentUser]);
 
+  function removePlant(id: string) {
+    console.log(id);
+    database.plants
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("Document successfully deleted!");
+      })
+      .catch(error => {
+        console.error("Error removing document: ", error);
+      });
+  }
+
   return (
     <div className="table-flex-container">
       <Navbar />
@@ -44,7 +57,10 @@ export default function Dashboard() {
                     <button className="update-btn">
                       <i className="bx bxs-calendar-plus"></i>
                     </button>
-                    <button className="delete-btn">
+                    <button
+                      className="delete-btn"
+                      onClick={() => removePlant(plant.id)}
+                    >
                       <i className="bx bxs-trash"></i>
                     </button>
                   </td>
