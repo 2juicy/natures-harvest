@@ -1,4 +1,9 @@
-import React, { forwardRef, useRef, useImperativeHandle } from "react";
+import React, {
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+  useEffect,
+} from "react";
 
 interface Props {
   close: () => void;
@@ -8,6 +13,11 @@ interface Props {
 const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
   const nameRef = useRef<HTMLInputElement>(null);
   const typeRef = useRef<HTMLInputElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    nameRef.current?.focus();
+  }, []);
 
   useImperativeHandle(ref, () => ({
     get name() {
@@ -18,8 +28,16 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
     },
   }));
 
+  function nameKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") typeRef.current?.focus();
+  }
+
+  function typeKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") submitRef.current?.focus();
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="add-plant-form">
       <h2 className="title">Add a new plant</h2>
       <div className="input-box">
         <span className="label">Name</span>
@@ -28,6 +46,7 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
           placeholder="Enter plant name"
           type="text"
           ref={nameRef}
+          onKeyDown={nameKeyDown}
           required
         />
       </div>
@@ -37,6 +56,7 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
           name="type"
           placeholder="Enter plant type"
           type="text"
+          onKeyDown={typeKeyDown}
           ref={typeRef}
         />
       </div>
@@ -44,11 +64,17 @@ const AddPlantForm = forwardRef(({ close, handleSubmit }: Props, ref) => {
         <button type="button" className="cancel" onClick={close}>
           Cancel
         </button>
-        <div className="submit">
-          <input type="submit" value="Add" />
-        </div>
+        <button
+          type="button"
+          className="submit"
+          ref={submitRef}
+          onClick={handleSubmit}
+          onKeyDown={handleSubmit}
+        >
+          Add
+        </button>
       </div>
-    </form>
+    </div>
   );
 });
 
