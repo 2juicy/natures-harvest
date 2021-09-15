@@ -1,0 +1,24 @@
+@import "../../../styles/shared.scss";
+
+.update {
+  margin: 25px 0 35px 0;
+  height: 45px;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  text-shadow: $secondary-color 1px 0.5px;
+  background-image: linear-gradient(75deg, $primary-color, $secondary-color);
+  background-size: 150%;
+  background-position: left;
+  transition: 300ms background-position ease-in-out;
+
+  &:hover {
+    text-shadow: $primary-color 0.5px 1px;
+    background-position: right;
+  }
+}

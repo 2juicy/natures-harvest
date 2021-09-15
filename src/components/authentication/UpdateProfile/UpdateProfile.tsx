@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import "./UpdateProfile.scss";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
 import { Link, useHistory } from "react-router-dom";
@@ -44,44 +45,43 @@ export default function UpdateProfile() {
         {error && (
           <Alert variant="alert" message={error} setMessage={setError} />
         )}
-        <form onSubmit={handleSubmit}>
-          <div className="input-box">
-            <span className="label">Email</span>
-            <input
-              ref={emailRef}
-              placeholder="Enter your Email"
-              type="email"
-              required
-              defaultValue={currentUser.email}
-            />
-          </div>
 
-          <div className="input-box">
-            <span className="label">Password</span>
-            <input
-              ref={passwordRef}
-              placeholder="Leave blank to keep the same"
-              type="password"
-            />
-          </div>
+        <div className="input-box">
+          <span className="label">Email</span>
+          <input
+            ref={emailRef}
+            placeholder="Enter your Email"
+            type="email"
+            required
+            defaultValue={currentUser.email}
+          />
+        </div>
 
-          <div className="input-box">
-            <span className="label">Confirm password</span>
-            <input
-              ref={confirmPasswordRef}
-              placeholder="Confirm change password"
-              type="password"
-            />
-          </div>
+        <div className="input-box">
+          <span className="label">Password</span>
+          <input
+            ref={passwordRef}
+            placeholder="Leave blank to keep the same"
+            type="password"
+          />
+        </div>
 
-          <div className="submit">
-            <input disabled={loading} type="submit" value="Update Profile" />
-          </div>
+        <div className="input-box">
+          <span className="label">Confirm password</span>
+          <input
+            ref={confirmPasswordRef}
+            placeholder="Confirm change password"
+            type="password"
+          />
+        </div>
 
-          <div className="cancel">
-            <Link to="/">Cancel</Link>
-          </div>
-        </form>
+        <button className="update" disabled={loading} type="button">
+          Update Profile
+        </button>
+
+        <div className="cancel">
+          <Link to="/">Cancel</Link>
+        </div>
       </div>
     </div>
   );
