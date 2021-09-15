@@ -7,7 +7,7 @@ import AddPlantForm from "../AddPlantForm/AddPlantForm";
 
 export default function AddPlant() {
   const [modal, setModal] = useState(false);
-  const plantRef = useRef<HTMLInputElement>();
+  const plantRef = useRef<HTMLInputElement>(null);
   const { currentUser } = useAuth();
 
   function handleSubmit(e: React.SyntheticEvent) {
