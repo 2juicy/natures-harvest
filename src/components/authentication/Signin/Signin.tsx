@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import useToggle from "../../../hooks/useToggle";
 import { useAuth } from "../../../contexts/AuthContext";
 import Alert from "../Alert/Alert";
 import { Link, useHistory } from "react-router-dom";
@@ -8,7 +9,7 @@ export default function Signin() {
   const passwordRef = useRef<HTMLInputElement>(null);
   const { signin } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useToggle(false);
   const history = useHistory();
 
   useEffect(() => {
