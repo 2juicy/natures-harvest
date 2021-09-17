@@ -8758,9 +8758,9 @@ sass-loader@^10.0.5:
     schema-utils "^3.0.0"
     semver "^7.3.2"
 
-sass@^1.38.1:
-  version "1.38.1"
-  resolved "https://registry.npmjs.org/sass/-/sass-1.38.1.tgz"
+sass@^1.41.1:
+  version "1.41.1"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.41.1.tgz#bca5bed2154192779c29f48fca9c644c60c38d98"
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
